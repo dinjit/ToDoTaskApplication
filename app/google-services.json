@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "524561955019",
+    "firebase_url": "https://todotaskdinjit.firebaseio.com",
+    "project_id": "todotaskdinjit",
+    "storage_bucket": "todotaskdinjit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524561955019:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524561955019-4sokiddai1ult4f2o7575u6u5l31i1vg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "1be452fb47c5e3f5d3e1a3350286c3a75a23b8f6"
+          }
+        },
+        {
+          "client_id": "524561955019-ik3m5b2r7643u9mt6g6dp44j7v402431.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ybpdgjNn5QUJtF-os6BsuIqGsJsRYdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524561955019-ik3m5b2r7643u9mt6g6dp44j7v402431.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
