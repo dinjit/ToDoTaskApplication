@@ -9,6 +9,7 @@
     <color name="light_gray">#D3D3D3</color>
     <color name="list_background">#303030</color>
     <color name="dark_grey">#7c7c7c</color>
-
+<color name="pending">#E60000</color>
+    <color name="completed">#4CBB17</color>
 
 </resources>

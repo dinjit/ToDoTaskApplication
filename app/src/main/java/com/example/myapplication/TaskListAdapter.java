@@ -1,25 +1,28 @@
 package com.example.myapplication;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder>{
     private ArrayList<TaskObject> taskObjectArrayList;
-
-    // RecyclerView recyclerView;
-    public TaskListAdapter(ArrayList<TaskObject> taskObjectArrayList) {
+    Context context;
+    IOnRowClickListener mlistener;    public TaskListAdapter(Context context,ArrayList<TaskObject> taskObjectArrayList) {
         this.taskObjectArrayList = taskObjectArrayList;
+        this.context=context;
     }
+    public void setListener(IOnRowClickListener listener) {
+        this.mlistener = listener;
+    }
+
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
@@ -33,11 +36,33 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
         final TaskObject taskObject = taskObjectArrayList.get(position);
         holder.tvTaskName.setText(taskObject.taskName);
         holder.tvTaskStatus.setText(taskObject.taskStatus);
-//        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//            }
-//        });
+        holder.ivEditTask.setTag(taskObject);
+        holder.ivdeleteTask.setTag(taskObject.id);
+
+        holder.ivEditTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TaskObject taskObject1 = (TaskObject) view.getTag();
+                mlistener.onEditClicked(taskObject1);
+            }
+        });
+
+        holder.ivdeleteTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String taskId = (String) v.getTag();
+                mlistener.onDeleteClicked(taskId);
+            }
+        });
+        if(taskObject.taskStatusId!=null) {
+            if (taskObject.taskStatusId.equalsIgnoreCase("0")) {
+                holder.tvTaskStatus.setBackgroundColor(context.getResources().getColor(R.color.dark_grey));
+            } else if (taskObject.taskStatusId.equalsIgnoreCase("1")) {
+                holder.tvTaskStatus.setBackgroundColor(context.getResources().getColor(R.color.pending));
+            } else if (taskObject.taskStatusId.equalsIgnoreCase("2")) {
+                holder.tvTaskStatus.setBackgroundColor(context.getResources().getColor(R.color.completed));
+            }
+        }
     }
 
 
@@ -49,12 +74,18 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTaskName, tvTaskStatus;
         public RelativeLayout relativeLayout;
+        public ImageView ivEditTask,ivdeleteTask;
         public ViewHolder(View itemView) {
             super(itemView);
             tvTaskName = (TextView) itemView.findViewById(R.id.tvTaskName);
             tvTaskStatus = (TextView) itemView.findViewById(R.id.tvTaskStatus);
-
-//            relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
+            ivdeleteTask = (ImageView) itemView.findViewById(R.id.ivdeleteTask);
+            ivEditTask = (ImageView)itemView.findViewById(R.id.ivEditTask);
         }
+    }
+
+    public interface IOnRowClickListener {
+        void onEditClicked(TaskObject taskObject);
+        void onDeleteClicked(String taskId);
     }
 }

@@ -5,9 +5,8 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        tools:context=".NewTransactionActivity">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/appbar"
@@ -22,7 +21,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Transaction"
+                android:text="Add Task"
                 android:textColor="#fff"
                 android:textStyle="bold" />
 
@@ -38,61 +37,126 @@
             android:layout_marginRight="10dp">
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:inputType="textCapSentences"
                 android:paddingLeft="10dp"
-                android:text="Tenant Name" />
+                android:text="Task Name" />
 
             <AutoCompleteTextView
-                android:id="@+id/CustomerName"
+                android:id="@+id/etTaskName"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@drawable/bg_light_gray_shade"
                 android:gravity="center_vertical"
                 android:maxLines="1"
+                android:layout_marginLeft="10dp"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
                 android:textSize="12sp" />
         </LinearLayout>
-
         <LinearLayout
-            android:id="@+id/transcationLayout"
+            android:layout_marginTop="10dp"
+            android:id="@+id/receivedLayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_below="@id/custlayout"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Task Start Time" />
+
+            <TextView
+                android:id="@+id/tvTaskStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_light_gray_shade"
+                android:gravity="center_vertical"
+                android:inputType="numberSigned"
+                android:maxLength="8"
+                android:paddingLeft="10dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taskStatus"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/receivedLayout"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
+
+
             <LinearLayout
-                android:id="@+id/receivedLayout"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/custlayout"
-                android:layout_marginRight="10dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="120dp"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
-                    android:text="Received" />
+                    android:text="Status" />
 
-                <EditText
-                    android:id="@+id/cashReceived"
+
+                <RelativeLayout
+                    android:id="@+id/hidden_spn_above_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/refresh_all_list"
                     android:background="@drawable/bg_light_gray_shade"
-                    android:gravity="center_vertical"
-                    android:inputType="numberSigned"
-                    android:maxLength="8"
-                    android:paddingLeft="10dp"
-                    android:textSize="12sp" />
+                    >
+
+                    <Spinner
+                        android:layout_margin="1dp"
+                        android:id="@+id/spnTaskStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:inputType="numberSigned"
+                        android:maxLength="8"
+                        android:background="@color/white"
+                        android:paddingLeft="10dp"
+                        android:textSize="12sp" />
+
+
+                    <ImageView
+                        android:id="@+id/spinner_facility_arrow"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/down_arrow" />
+                </RelativeLayout>
+
             </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/transcationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/taskStatus"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+
 
             <LinearLayout
                 android:id="@+id/pendingLayout"
@@ -100,24 +164,21 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-
-                >
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="120dp"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
-                    android:text="Pending" />
+                    android:text="Comment" />
 
                 <EditText
-                    android:id="@+id/cashPending"
+                    android:id="@+id/etComment"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/bg_light_gray_shade"
                     android:gravity="center_vertical"
-                    android:inputType="numberSigned"
-                    android:maxLength="8"
                     android:paddingLeft="10dp"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -126,7 +187,7 @@
 
 
         <TextView
-            android:id="@+id/btnSaveTransaction"
+            android:id="@+id/btnSaveTask"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/transcationLayout"
