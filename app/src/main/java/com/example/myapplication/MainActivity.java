@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         final Spinner spnTaskStatus = (Spinner) dialog.findViewById(R.id.spnTaskStatus);
         ArrayAdapter taskStatusAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, taskStatus);
-        taskStatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        taskStatusAdapter.setDropDownViewResource(R.layout.custom_spinner_layout);
         spnTaskStatus.setAdapter(taskStatusAdapter);
 
         tvTaskStartTime = (TextView) dialog.findViewById(R.id.tvTaskStartTime);
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                     }
                     dialog.dismiss();
                 }else {
-                    util.showOKAlert(MainActivity.this, "Enter Task Name");
+                    Toast.makeText(MainActivity.this, "Enter Task Name", Toast.LENGTH_SHORT).show();
                 }
 
 

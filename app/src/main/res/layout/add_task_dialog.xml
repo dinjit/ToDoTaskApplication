@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -111,9 +111,8 @@
                 <RelativeLayout
                     android:id="@+id/hidden_spn_above_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_toLeftOf="@+id/refresh_all_list"
                     android:background="@drawable/bg_light_gray_shade"
                     >
 
@@ -123,11 +122,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:gravity="center_vertical"
-                        android:inputType="numberSigned"
-                        android:maxLength="8"
                         android:background="@color/white"
                         android:paddingLeft="10dp"
-                        android:textSize="12sp" />
+                        android:textSize="10sp" />
 
 
                     <ImageView
@@ -191,7 +188,7 @@
             android:layout_height="40dp"
             android:layout_below="@+id/transcationLayout"
             android:layout_marginTop="10dp"
-            android:background="@color/black"
+            android:background="@color/button_background"
             android:gravity="center"
             android:text="Save"
             android:textColor="#fff"

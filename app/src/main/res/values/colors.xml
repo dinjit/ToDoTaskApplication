@@ -11,5 +11,6 @@
     <color name="dark_grey">#7c7c7c</color>
 <color name="pending">#E60000</color>
     <color name="completed">#4CBB17</color>
+    <color name="button_background">#191919</color>
 
 </resources>

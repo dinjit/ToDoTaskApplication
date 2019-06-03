@@ -28,7 +28,7 @@
         android:id="@+id/btnAddTask"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/black"
+        android:background="@color/button_background"
         android:gravity="center"
         android:padding="10dp"
         android:text="Add Task"
