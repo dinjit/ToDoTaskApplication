@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         spnTaskStatus.setAdapter(taskStatusAdapter);
 
         tvTaskStartTime = (TextView) dialog.findViewById(R.id.tvTaskStartTime);
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = df.format(myCalendar.getTime());
         tvTaskStartTime.setText(formattedDate);
 
@@ -154,12 +154,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                     } else {
                         util.showOKAlert(MainActivity.this, "Network Not Available");
                     }
+                    dialog.dismiss();
                 }else {
                     util.showOKAlert(MainActivity.this, "Enter Task Name");
                 }
 
 
-                dialog.dismiss();
+
             }
         });
     }

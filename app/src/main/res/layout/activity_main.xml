@@ -19,7 +19,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvTaskList"
-        android:background="#FBF0F0F0"
+        android:background="#FBFAFAFA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
@@ -27,8 +27,8 @@
     <TextView
         android:id="@+id/btnAddTask"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/dark_grey"
+        android:layout_height="45dp"
+        android:background="@color/black"
         android:gravity="center"
         android:padding="10dp"
         android:text="Add Task"
