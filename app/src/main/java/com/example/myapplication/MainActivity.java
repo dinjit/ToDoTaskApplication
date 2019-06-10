@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     private void setTaskAdapter() {
         TaskListAdapter taskListAdapter = new TaskListAdapter(MainActivity.this, taskObjectArrayList);
-
         rvTaskList.setHasFixedSize(true);
         rvTaskList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         rvTaskList.setAdapter(taskListAdapter);
